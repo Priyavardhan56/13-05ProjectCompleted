@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ecare.Models.Doctor>
+
+@{
+    ViewBag.Title = "DoctorsList";
+    Layout = "~/Views/Shared/_HospitalLayoutPage.cshtml";
+}
+
+<h4>Doctors List</h4>
+<hr />
+<p>
+    @using (Html.BeginForm("DoctorsHistory", "HospitalMaster", FormMethod.Get))
+    {
+        <input type="text" name="search" />
+        <input type="submit" value="Search" name="submit" />
+    }
+</p>
+<div class="table-responsive ta">
+  
+    <table id="myTable" class="table table-bordered table-sm table-hover">
+        <tr class="bg-custom text-white thead-light">
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorAddress)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActionType)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorAddress)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionType)
+        </td>
+ 
+    </tr>
+        }
+
+    </table>
+</div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+
+

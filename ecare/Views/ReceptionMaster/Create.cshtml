@@ -1,0 +1,241 @@
+﻿@model ecare.Models.Appointment
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_ReceptionLayoutPage.cshtml";
+    if (Session["Email"] != null)
+    {
+        ViewBag.id = @Session["Id"].ToString();
+        ViewBag.HospitalId = @Session["HospitalId"].ToString();
+        ViewBag.EntryBy = @Session["Email"].ToString();
+    }
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $("#EntryBy").hide();
+        $("#HospitalId").hide();
+        $("#eb").hide();
+        $("#hi").hide();
+
+
+    });
+</script>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <h4>Book An Appointment</h4>
+        <hr />
+        @using (Html.BeginForm("Create", "ReceptionMaster", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>
+                                Name
+                            </label>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Enter Name", @required = "" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+
+                            <label>Appointment Type</label><br />
+                            Walkin:
+                            @Html.RadioButtonFor(model => model.AppointmentType, "Walkin")
+                            Telephonic:
+                            @Html.RadioButtonFor(model => model.AppointmentType, "Telephonic")
+
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>
+                                Age
+                            </label>
+                            @Html.TextBoxFor(model => model.Age, new { @class = "form-control", @type = "number", @placeholder = "Enter Age", @id = "Age", @min = "1", @max = "100", @required = "" })
+                            @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>
+                                Phone
+                            </label>
+                            @*@Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @maxlength = "10", @placeholder = "91+" ,@required=""})*@
+                            <input class="form-control" id="Phone" maxlength="10" name="Phone" pattern="[4-9]{1}[0-9]{9}" required="Please Enter Correct Pattern" placeholder="Enter Mobile Number" />
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>
+                                Address
+                            </label>
+                            @Html.TextAreaFor(model => model.Address, new { @class = "form-control", @placeholder = "Enter Address", @required = "" })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>
+                                Gender
+                            </label><br />
+                            Male
+                            @Html.RadioButtonFor(model => model.Gender, "Male")
+                            Female
+                            @Html.RadioButtonFor(model => model.Gender, "Female")
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>
+                                Problem
+                            </label>
+                            @Html.TextAreaFor(model => model.Problem, new { @class = "form-control", @placeholder = "Enter Problem", @required = "" })
+                            @Html.ValidationMessageFor(model => model.Problem, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @*@Html.TextBoxFor(model => model.Date, "Date", new { @class = "form-control", @Id = "Date", @type = "date", @onchange = "checkDOB()", @name = "Date" })*@
+                                <input class="form-control" type="date" id="Date" name="Date" min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")" max="@DateTime.Now.AddDays(21).ToString("yyyy-MM-dd")" required>
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+
+                        <div class="form-group">
+                            <label id="Pay">
+                                Payment
+                            </label>
+                            @Html.TextBoxFor(model => model.Payment, new { @class = "form-control", @type = "number", @placeholder = "Enter Payment", @id = "Payment" })
+                            @Html.ValidationMessageFor(model => model.Payment, "", new { @class = "text-danger" })
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label id="s">
+                                Slot
+                            </label>
+                            <select class="form-control"
+                                    name="Slot"
+                                    id="Slot">
+                                <option value="">Choose One</option>
+                                <option>9:00-9:30</option>
+                                <option>9:30-10:00</option>
+                                <option>10:00-10:30</option>
+                                <option>10:30-11:00</option>
+                                <option>11:00-11:300</option>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.Slot, "", new { @class = "text-danger" })
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3">
+                        <label id="hi">Hospital Id</label>
+                        @Html.TextBox("HospitalId", (string)ViewBag.HospitalId, new { @class = "form-input" })
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label id="eb">Entry By </label>
+                            <div class="col-md-10">
+                                @Html.TextBox("EntryBy", (string)ViewBag.EntryBy, new { @class = "form-control", @name = "EntryBy" })
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-custom " />
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Great!", "Appointment Successfully added", "success");
+        });
+    </script>
+}
+else if (ViewBag.ErrorMessage != null)
+{
+
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Error", "Sorry, There is problem saving data", "error");
+        });
+    </script>
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("input[Value='Walkin']").click(function () {
+            //$("#Slot").hide();
+            //$("#s").hide();
+            $("#Payment").show();
+            $("#Pay").show();
+        });
+        $("input[Value='Telephonic']").click(function () {
+            $("#Slot").show();
+            $("#s").show();
+            $("#Payment").hide();
+            $("#Pay").hide();
+        });
+    });
+</script>
+

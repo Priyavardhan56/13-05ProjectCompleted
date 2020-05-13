@@ -1,0 +1,151 @@
+﻿@model ecare.Models.Contact
+@{
+    ViewBag.Title = "Chat";
+    Layout = "~/Views/Shared/_IndexLayoutPage.cshtml";
+}
+
+<!--End Main Header -->
+<!--Page Title-->
+<section class="page-title text-center" style="background-image:url(/Content/FrontPart/images/background/3.jpg);">
+    <div class="container">
+        <div class="title-text">
+            <h1>Contact</h1>
+            <ul class="title-menu clearfix">
+                <li>
+                    <a href="index.html">home &nbsp;/</a>
+                </li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<!--==================================
+=            Contact Form            =
+===================================-->
+<section class="section contact">
+    <!-- container start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- address start -->
+                <div class="address-block">
+                    <!-- Location -->
+                    <div class="media">
+                        <i class="fa fa-map-o"></i>
+                        <div class="media-body">
+                            <h3>Location</h3>
+                            <p>
+                                Nellore, AndhraPradesh
+                                <br>India
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Phone -->
+                    <div class="media">
+                        <i class="fa fa-phone"></i>
+                        <div class="media-body">
+                            <h3>Phone</h3>
+                            <p>
+                                (+91)788916653
+                                <br> (+91)788916653
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="media">
+                        <i class="fa fa-envelope-o"></i>
+                        <div class="media-body">
+                            <h3>Email</h3>
+                            <p>
+                                info@Ecare.com
+                                <br>info@Ecare.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- address end -->
+            </div>
+            <div class="col-md-8">
+                <div class="contact-form">
+                    <div class="form-row">
+                        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <h4>Contact</h4>
+                            <hr />
+
+
+                            <div class="col-md-6">
+                                <input type="text" name="Name" class="form-control main" placeholder="Name" required>
+                            </div>
+                            <!-- email -->
+                            <div class="col-md-6">
+                                <input type="email" name="Email" class="form-control main" placeholder="Email" required>
+                            </div>
+                            <!-- phone -->
+                            <div class="col-md-12">
+                                <input type="text" class="form-control main" name="Phone" placeholder="Phone" required>
+                            </div>
+                            <!-- message -->
+                            <div class="col-md-12">
+                                <textarea name="Message" rows="15" class="form-control main" placeholder="Your message"></textarea>
+                            </div>
+
+
+                            <div class="col-md-12 text-right">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Send" class="btn btn-style-one" />
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+                </div>
+    </div>
+
+    <!-- container end -->
+</section>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Great!", "your message Successfully sent", "success");
+        });</script>
+}
+else if (ViewBag.ErrorMessage != null)
+{
+
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Error", "Sorry, There is problem saving data", "error");
+        });</script>
+}
+@*<div class="col-md-6">
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @type = "text", @name = "name", @class = "form-control main", @placeholder = "Name", @required = "" } })
+
+</div>
+
+<div class="col-md-6">
+    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @type = "email", @class = "form-control main", @placeholder = "Email", @required = "" } })
+
+</div>
+
+<div class="col-md-12">
+    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control main", @placeholder = "Phone", @required = "" } })
+
+</div>
+
+<div class="col-md-12">
+    @Html.TextAreaFor(model => model.Message, new { htmlAttributes = new { @class = "form-control main", @name = "message", @rows = "15", @placeholder = "Your message" } })
+
+</div>*@

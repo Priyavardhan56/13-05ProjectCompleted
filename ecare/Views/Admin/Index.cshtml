@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+    if (Session["Email"] != null)
+    {
+        ViewBag.id = @Session["Id"].ToString();
+        ViewBag.EntryBy = @Session["Name"].ToString();
+    }
+   
+}
+
+
+
+
+    <div class="col main mt-3">
+        <h4 class="h2 d-none d-sm-block">
+            Dashboard
+        </h4>
+        <hr />
+
+    </div>
+    <div class="row mb-3">
+        <div class="col-xl-4 col-sm-6 py-2">
+            <div class="card bg-success text-white h-100">
+                <div class="card-body bg-success">
+                    <div class="rotate">
+                        <i class="fa fa-hospital-o fa-4x"></i>
+                    </div>
+                    <h6 class="text-uppercase"> Hospitals</h6>
+                    <h1 class="display-4">@ViewBag.hospitalCount</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 py-2">
+            <div class="card text-white bg-danger h-100">
+                <div class="card-body bg-danger">
+                    <div class="rotate">
+                        <i class="fa fa-user-o fa-4x"></i>
+                    </div>
+                    <h6 class="text-uppercase">Users</h6>
+                    <h1 class="display-4">@ViewBag.userCount</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 py-2">
+            <div class="card text-white bg-info h-100">
+                <div class="card-body bg-info">
+                    <div class="rotate">
+                        <i class="fa fa-money fa-4x"></i>
+                    </div>
+                    <h6 class="text-uppercase">All Appointments</h6>
+                    <h1 class="display-4">@ViewBag.appointmentCount</h1>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+    <!--/row-->
+
+    <hr />
+
+

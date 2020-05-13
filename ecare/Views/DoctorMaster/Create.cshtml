@@ -1,0 +1,245 @@
+﻿@model ecare.Models.Doctor
+
+@{
+    ViewBag.Title = "AddDoctor";
+    Layout = "~/Views/Shared/_HospitalLayoutPage.cshtml";
+    if (Session["Email"] != null)
+    {
+        ViewBag.id = @Session["Id"].ToString();
+        ViewBag.EntryBy = @Session["Email"].ToString();
+    }
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $("#EntryBy").hide();
+        $("#HospitalId").hide();
+        $("#eb").hide();
+        $("#hi").hide();
+
+
+    });
+</script>
+
+
+<div class="col-md-12">
+    <h4>Add Doctor</h4>
+    <hr />
+    @using (Html.BeginForm("Create", "DoctorMaster", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Employee Code
+                        </label>
+                        @Html.TextBoxFor(model => model.EmployeeCode, new { @class = "form-control", @placeholder = "Enter Employee Code", @maxlength = "10", @type = "number", @required = "" })
+                        @Html.ValidationMessageFor(model => model.EmployeeCode, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor Photo
+                        </label>
+                        @Html.TextBox("DoctorPhoto", "", new { @type = "file" })
+                        @Html.ValidationMessageFor(model => model.DoctorPhoto, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor Name
+                        </label>
+                        @Html.TextBoxFor(model => model.DoctorName, new { @class = "form-control", @placeholder = "Enter Name", @required = "" })
+                        @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+
+                        <label>Doctor Address</label>
+                        @Html.TextAreaFor(model => model.DoctorAddress, new { @class = "form-control", @placeholder = "Enter Address", @required = "" })
+                        @Html.ValidationMessageFor(model => model.DoctorAddress, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor Specialization
+                        </label>
+                        @Html.TextBoxFor(model => model.DoctorSpecialization, new { @class = "form-control", @placeholder = "Enter Doctor Specialization", @required = "" })
+                        @Html.ValidationMessageFor(model => model.DoctorSpecialization, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor Degree
+                        </label>
+                        @Html.TextBoxFor(model => model.DoctorDegree, new { @class = "form-control", @placeholder = "Enter Doctor Degree", @required = "" })
+                        @Html.ValidationMessageFor(model => model.DoctorDegree, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor Phone
+                        </label>
+                        @*<input class="form-control" id="DoctorPhone" maxlength="10" name="DoctorPhone" pattern="[6-9]{1}[0-9]{9}" required="" />*@
+                        <input class="form-control" id="DoctorPhone" maxlength="10" name="DoctorPhone" pattern="[4-9]{1}[0-9]{9}" required="" placeholder="Enter Mobile Number" />
+
+                        @Html.ValidationMessageFor(model => model.DoctorPhone, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor Email
+                        </label>
+                        @Html.TextBoxFor(model => model.DoctorEmail, new { @class = "form-control", @type = "email", @placeholder = "Enter Email", @required = "" })
+                        @Html.ValidationMessageFor(model => model.DoctorEmail, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor City
+                        </label>
+                        @Html.TextBoxFor(model => model.DoctorCity, new { @class = "form-control", @placeholder = "Enter City", @required = "" })
+                        @Html.ValidationMessageFor(model => model.DoctorCity, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor State
+                        </label>
+                        @Html.TextBoxFor(model => model.DoctorState, new { @class = "form-control", @placeholder = "Enter State", @required = "" })
+                        @Html.ValidationMessageFor(model => model.DoctorState, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Doctor Country
+                        </label>
+                        @Html.TextBoxFor(model => model.DoctorCountry, new { @class = "form-control", @placeholder = "Enter Country", @required = "" })
+                        @Html.ValidationMessageFor(model => model.DoctorCountry, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Is Doctor Active?</label>
+
+                        <div class="custom-checkbox">
+                            @Html.EditorFor(model => model.IsActive) Yes
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label id="hi">Hospital Id</label>
+                        @Html.TextBox("HospitalId", (string)ViewBag.id, new { @class = "form-input" })
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label id="eb">Entry By </label>
+                        <div class="col-md-10">
+                            @Html.TextBox("EntryBy", (string)ViewBag.EntryBy, new { @class = "form-control", @name = "EntryBy" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-custom " />
+            </div>
+        </div>
+
+    }
+
+</div>
+
+
+@*<script src="~/Scripts/PhoneNumberFormat.js"></script>*@
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+@*<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Great!", "Doctor Successfully added", "success");
+        });</script>
+}
+else if (ViewBag.ErrorMessage != null)
+{
+
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Error", "Sorry, There is problem saving data", "error");
+        });</script>
+}
+
+
+
+
+

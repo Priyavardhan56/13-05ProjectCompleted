@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_PatientLayoutPage.cshtml";
+}
+
+    <div class="col main mt-3">
+        <h4 class="h2 d-none d-sm-block">
+            Dashboard
+        </h4>
+        <hr />
+    </div>
+<div class="row mb-3">
+    <div class="col-xl-4 col-sm-6 py-2">
+        <div class="card-body bg-info">
+            <div class="rotate">
+                <i class="fa fa-money fa-4x"></i>
+            </div>
+            <h6 class="text-uppercase">TotalAppointmentsTaken</h6>
+            <h1 class="display-4">@ViewBag.appointmentCount</h1>
+        </div>
+    </div>
+
+
+</div>
+<!--/row-->
+
+<hr />
+
+

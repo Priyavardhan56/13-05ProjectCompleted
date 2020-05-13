@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ecare.Models.Vitals>
+
+@{
+    ViewBag.Title = "Prescription";
+    Layout = "~/Views/Shared/_PatientLayoutPage.cshtml";
+}
+
+<h4>Prescription</h4>
+<hr />
+<div class="table-responsive ta">
+    <table id="myTable" class="table table-bordered table-sm table-hover">
+        <tr class="bg-custom text-white thead-light">
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodPressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pulse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Symptoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diagnosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicineName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dosage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryBy)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloodPressure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Temperature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pulse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Symptoms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diagnosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dosage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Timings)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryBy)
+        </td>
+    </tr>
+        }
+
+    </table>
+    </div>

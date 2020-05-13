@@ -1,0 +1,101 @@
+﻿@model ecare.Models.Role
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $("#eb").hide();
+
+
+
+    });
+</script>
+<h4>Add Role</h4>
+<hr />
+@using (Html.BeginForm("Create", "RoleMaster", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoleName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RoleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Name" } })
+                        @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RoleDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RoleDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Role Description" } })
+                        @Html.ValidationMessageFor(model => model.RoleDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+                <div class="form-group" id="eb">
+                    @Html.LabelFor(model => model.EntryBy, htmlAttributes: new { @class = "control-label col-md-2", @id = "eb" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EntryBy, new { htmlAttributes = new { @class = "form-control", @id = "eb" } })
+                        @Html.ValidationMessageFor(model => model.EntryBy, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-custom" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+@*<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Great!", "Role Successfully added", "success");
+        });</script>
+}
+else if (ViewBag.ErrorMessage != null)
+{
+
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Error", "Sorry, There is problem saving data", "error");
+        });</script>
+}
+
+
+
+

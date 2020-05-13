@@ -1,0 +1,121 @@
+﻿@{
+
+    if (Session["Email"] != null)
+    {
+        ViewBag.id = @Session["Id"].ToString();
+        ViewBag.EntryBy = @Session["Email"].ToString();
+        ViewBag.Name = @Session["Name"].ToString();
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Admin | @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/assets/css/simple-sidebar.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-custom text-white border-right  " id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <i class="fa fa-user-md" aria-hidden="true"></i>&nbsp;E-Care
+            </div>
+            <div class="list-group list-group-flush  ">
+
+                @Html.ActionLink("Admin Dashboard", "Index", "Admin", null, new { @class = "list-group-item list-group-item-action bg-transparent" })
+
+                @Html.ActionLink("Hospitals", "Index", "HospitalMaster", null, new { @class = "list-group-item list-group-item-action bg-transparent" })
+                @Html.ActionLink("Hospitals History", "HospitalHistory", "HospitalMaster", null, new { @class = "list-group-item list-group-item-action bg-transparent" })
+
+                @Html.ActionLink("Roles", "Index", "RoleMaster", null, new { @class = "list-group-item list-group-item-action bg-transparent" })
+
+                @Html.ActionLink("Users", "Users", "Admin", null, new { @class = "list-group-item list-group-item-action bg-transparent" })
+
+                @Html.ActionLink("Requests", "Contactinfo", null, new { @class = "list-group-item list-group-item-action bg-transparent" })
+
+                @Html.ActionLink("Settings", "Settings", "Admin", null, new { @class = "list-group-item list-group-item-action bg-transparent" })
+                @Html.ActionLink("Logout", "Logout", "Home", null, new { @class = "list-group-item list-group-item-action bg-transparent" })
+
+
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light bg-custom border-bottom">
+                <button class="btn btn-light btn-sm" id="menu-toggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" style="background-color: rgb(11, 102, 124); color:white" href="#">Welcome @Session["Name"] </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               id="navbarDropdown"
+                               role="button"
+                               data-toggle="dropdown"
+                               aria-haspopup="true"
+                               aria-expanded="false">
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right"
+                                 aria-labelledby="navbarDropdown" id="navbarDropdown">
+                                @*@Html.ActionLink("My Profile", "", "HospitalMaster", null, new { @class = "dropdown-item" })*@
+                                @Html.ActionLink("Logout", "Logout", "Home", null, new { @class = "dropdown-item" })
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            @if (TempData.ContainsKey("Message"))
+            {
+                @*<div class="alert alert-warning alert-dismissible fade show" role="alert" style="text-align:center">*@
+                <div class="alert alert-primary" role="alert" style="text-align:center;color:white;background-color:rgb(11, 102, 124)">
+                    @TempData["Message"]
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });</script>
+</body>
+</html>

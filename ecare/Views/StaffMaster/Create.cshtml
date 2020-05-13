@@ -1,0 +1,263 @@
+﻿@model ecare.Models.Staff
+@{
+    ViewBag.Title = "AddStaff";
+    Layout = "~/Views/Shared/_HospitalLayoutPage.cshtml";
+    if (Session["HospitalEmail"] != null)
+    {
+        ViewBag.id = @Session["HospitalId"].ToString();
+        ViewBag.EntryBy = @Session["HospitalEmail"].ToString();
+    }
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $("#EntryBy").hide();
+        $("#HospitalId").hide();
+        $("#eb").hide();
+        $("#hi").hide();
+
+
+    });
+</script>
+
+
+
+<div class="col-md-12">
+    <h4>Add Staff</h4>
+    <hr />
+    @using (Html.BeginForm("Create", "StaffMaster", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff Name
+                        </label>
+                        @Html.TextBoxFor(model => model.StaffName, new { @class = "form-control", @placeholder = "Enter Name" })
+                        @Html.ValidationMessageFor(model => model.StaffName, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff Photo
+                        </label>
+                        @Html.TextBox("StaffPhoto", "", new { @type = "file" })
+                        @Html.ValidationMessageFor(model => model.StaffPhoto, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Role Name</label>
+
+                        <div class="" id="RoleId">
+                            @Html.DropDownList("RoleId", "Choose Role")
+                            @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Employee Code
+                        </label>
+                        @Html.TextBoxFor(model => model.EmployeeCode, new { @class = "form-control", @placeholder = "Enter Employee Code", @maxlength = "10", @type = "number", @required = "" })
+                        @Html.ValidationMessageFor(model => model.EmployeeCode, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff Specialization
+                        </label>
+                        @Html.TextBoxFor(model => model.StaffSpecialization, new { @class = "form-control", @placeholder = "Enter Staff Specialization", @required = "" })
+                        @Html.ValidationMessageFor(model => model.StaffSpecialization, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff Degree
+                        </label>
+                        @Html.TextBoxFor(model => model.StaffDegree, new { @class = "form-control", @placeholder = "Enter Staff Degree", @required = "" })
+                        @Html.ValidationMessageFor(model => model.StaffDegree, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Designation
+                        </label>
+                        @Html.TextBoxFor(model => model.Designation, new { @class = "form-control", @placeholder = "Enter Staff Designation", @required = "" })
+                        @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff Phone
+                        </label>
+                        @Html.TextBoxFor(model => model.StaffPhone, new { @class = "form-control", @type = "Text", @maxlength = "10", @placeholder = "91+", @required = "" })
+                        @Html.ValidationMessageFor(model => model.StaffPhoto, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff Email
+                        </label>
+                        @Html.TextBoxFor(model => model.StaffEmail, new { @class = "form-control", @type = "email", @placeholder = "Enter Email", @required = "" })
+                        @Html.ValidationMessageFor(model => model.StaffEmail, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff City
+                        </label>
+                        @Html.TextBoxFor(model => model.StaffCity, new { @class = "form-control", @placeholder = "Enter City", @required = "" })
+                        @Html.ValidationMessageFor(model => model.StaffCity, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff State
+                        </label>
+                        @Html.TextBoxFor(model => model.StaffState, new { @class = "form-control", @placeholder = "Enter State", @required = "" })
+                        @Html.ValidationMessageFor(model => model.StaffState, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>
+                            Staff Country
+                        </label>
+                        @Html.TextBoxFor(model => model.StaffCountry, new { @class = "form-control", @placeholder = "Enter Country", @required = "" })
+                        @Html.ValidationMessageFor(model => model.StaffCountry, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+
+                        <label>Staff Address</label>
+                        @Html.TextAreaFor(model => model.StaffAddress, new { @class = "form-control", @placeholder = "Enter Address", @required = "" })
+                        @Html.ValidationMessageFor(model => model.StaffAddress, "", new { @class = "text-danger" })
+
+                    </div>
+
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Is Staff Active?</label>
+
+                        <div class="custom-checkbox">
+                            @Html.EditorFor(model => model.IsActive) Yes
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label id="hi">Hospital Id</label>
+                        @Html.TextBox("HospitalId", (string)ViewBag.id, new { @class = "form-input" })
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label id="eb">Entry By </label>
+                        <div class="col-md-10">
+                            @Html.TextBox("EntryBy", (string)ViewBag.EntryBy, new { @class = "form-control", @name = "EntryBy" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-custom " />
+            </div>
+        </div>
+
+    }
+
+
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Great!", "Staff Successfully added", "success");
+        });
+    </script>
+}
+else if (ViewBag.ErrorMessage != null)
+{
+
+    <script type="text/javascript">
+        $(function () {
+
+            swal("Error", "Sorry, There is problem saving data", "error");
+        });
+    </script>
+}

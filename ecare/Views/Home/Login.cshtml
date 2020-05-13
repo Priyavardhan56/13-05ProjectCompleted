@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_IndexLayoutPage.cshtml";
+}
+
+@model ecare.Models.Credentials
+
+<div class="row mt-5 d-flex justify-content-center">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-lg-4 ">
+            <center><h2 style="margin-top:7px;margin-bottom:7px">LogIn</h2></center>
+
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken();
+                <div class="form-group">
+                    <label>Username</label>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @type = "email", @placeholder = "someone@xyz.com" })
+                    @Html.ValidationMessage("Email", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "password" })
+                    @Html.ValidationMessage("Password", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn-style-one" />
+                </div>
+                <div class="form-group">
+                    Forgot your password? @Html.ActionLink("Click here", "ForgotPassword", null, new { @class = "btn-link" })
+
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+          $(function () {
+              swal("Good job! " +@ViewBag.Message, "Login Successfully", "success");
+            });
+    </script>
+}
+
+
+
+
+

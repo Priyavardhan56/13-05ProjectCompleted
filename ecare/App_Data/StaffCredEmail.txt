@@ -1,0 +1,8 @@
+﻿<p>Hello {Name},<p>
+<p>We are glad that you signed up for our services. To login to the system use the following credentials:-</p>
+
+<p>Username : <strong>{email}</strong></p>
+<p>Password: <strong>{password}</strong></p>
+Regards
+<br/>
+Ecare Team

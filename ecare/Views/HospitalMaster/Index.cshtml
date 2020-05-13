@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ecare.Models.Hospital>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+
+<h4>Hospitals List</h4>
+<hr />
+<p>
+    @using (Html.BeginForm("Index", "HospitalMaster", FormMethod.Get))
+    {
+        <input type="text" name="search" />
+        <input type="submit" value="Search" name="submit" />
+    }
+</p>
+
+<div class="table-responsive ta">
+    <p>
+        @Html.ActionLink("Create New", "Create", "HospitalMaster", new { @class = "btn btn-custom text-white btn-sm" })
+    </p>
+
+    <table id="myTable" class="table table-bordered table-sm table-hover">
+        <tr class="bg-custom text-white thead-light">
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalAddress)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalPhone)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalLogo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+       
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HospitalId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HospitalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HospitalAddress)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.HospitalPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HospitalLogo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HospitalEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+
+        <td class="w-25">
+            @Html.ActionLink("Edit", "Edit", new { id = item.HospitalId }, new { @class = "btn btn-info" })
+
+            @Html.ActionLink("Delete", "Delete", new { id = item.HospitalId }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure to delete?');" })
+        </td>
+    </tr>
+        }
+
+    </table>
+
+</div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+
+
+
+
+
+

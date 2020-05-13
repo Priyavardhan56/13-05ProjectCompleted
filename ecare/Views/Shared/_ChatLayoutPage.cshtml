@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/Chat/img/favicon.ico">
+    <title>Chatt</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/Chat/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Chat/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Chat/css/style.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous" />
+
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="index-2.html" class="logo">
+                    <img src="/Images/caremedical_group.png" width="35" height="35" alt=""> <span>E-Care</span>
+                </a>
+            </div>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <span class="badge badge-pill bg-danger float-right">3</span></a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span>Notifications</span>
+                        </div>
+                        <div class="drop-scroll">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+                                            <span class="avatar">
+                                                <img alt="John Doe" src="Chat/img/user.jpg" class="img-fluid rounded-circle">
+                                            </span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Priya</span> Your Appointment Has Approved At Radha Hospital on 13feb At 12:30Pm   <span class="noti-title"></span></p>
+                                                <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+                                            <span class="avatar">T</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Priya</span> Your Appointment Has Approved At Radha Hospital on 13feb At 12:30Pm   <span class="noti-title"></span></p>
+                                                <p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+                                            <span class="avatar">S</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Priya</span>  <span class="noti-title"></span>  <span class="noti-title"></span>  <span class="noti-title">Your Appointment Has Approved At Radha Hospital on 13feb At 12:30Pm  </span></p>
+                                                <p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+                                            <span class="avatar">H</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Priya</span> <span class="noti-title">Your Appointment Has Approved At Radha Hospital on 13feb At 12:30Pm  </span></p>
+                                                <p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+                                            <span class="avatar">S</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Priya</span> <span class="noti-title">Your Appointment Has Approved At Radha Hospital on 13feb At 12:30Pm  </span></p>
+                                                <p class="noti-time"><span class="notification-time">2 days ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topnav-dropdown-footer">
+                            <a href="activities.html">View all Notifications</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img">
+                            <img class="rounded-circle" src="~/Content/Chat/img/user.jpg" width="40" alt="Admin">
+                            <span class="status online"></span>
+                        </span>
+                        <span>You</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/patientPanel/patientprofile.html">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                        <a class="dropdown-item" href="/patientPanel/settings.html">Settings</a>
+                        <a class="dropdown-item" href="/index.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="~/Views/PatientMaster/Dashboard.cshtml"><i class="fa fa-home back-icon"></i> <span>Back to Home</span></a>
+                        </li>
+                        <li class="menu-title">Chat Groups <a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_group"><i class="fa fa-plus"></i></a></li>
+                        <li>
+                            <a href="chat.html">#General</a>
+                        </li>
+                        <li class="menu-title">Chats <a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_chat_user"><i class="fa fa-plus"></i></a></li>
+                        <li>
+                            <a href="/ChatWithDoc.html"><span class="chat-avatar-sm user-img"><img src="Chat/img/user.jpg" alt="" class="rounded-circle"><span class="status online"></span></span> Shivam<span class="badge badge-pill bg-danger float-right">1</span></a>
+                        </li>
+                        <li>
+                            <a href="chat.html"><span class="chat-avatar-sm user-img"><img src="Chat/img/user.jpg" alt="" class="rounded-circle"><span class="status offline"></span></span> SaiTeja <span class="badge badge-pill bg-danger float-right">18</span></a>
+                        </li>
+                        <li>
+                            <a href="chat.html"><span class="chat-avatar-sm user-img"><img src="Chat/img/user.jpg" alt="" class="rounded-circle"><span class="status away"></span></span> Harsha</a>
+                        </li>
+                        <li class="active">
+                            <a href="chat.html"><span class="chat-avatar-sm user-img"><img src="Chat/img/user.jpg" alt="" class="rounded-circle"><span class="status online"></span></span> Vinay <span class="badge badge-pill bg-danger float-right">108</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="chat-main-row">
+                <div class="chat-main-wrapper">
+                    <h3>Chats</h3>
+                    <ul class="list-box">
+                        <li>
+                            <div class="container body-content">
+                                @RenderBody()
+                                <hr />
+                              
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="drag_files" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Drag and drop files upload</h3>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="js-upload-form">
+                                    <div class="upload-drop-zone" id="drop-zone">
+                                        <i class="fa fa-cloud-upload fa-2x"></i> <span class="upload-text">Just drag and drop files here</span>
+                                    </div>
+                                    <h4>Uploading</h4>
+                                    <ul class="upload-list">
+                                        <li class="file-list">
+                                            <div class="upload-wrap">
+                                                <div class="file-name">
+                                                    <i class="fa fa-photo"></i> photo.png
+                                                </div>
+                                                <div class="file-size">1.07 gb</div>
+                                                <button type="button" class="file-close">
+                                                    <i class="fa fa-close"></i>
+                                                </button>
+                                            </div>
+                                            <div class="progress progress-xs progress-striped">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 65%"></div>
+                                            </div>
+                                            <div class="upload-process">37% done</div>
+                                        </li>
+                                        <li class="file-list">
+                                            <div class="upload-wrap">
+                                                <div class="file-name">
+                                                    <i class="fa fa-file"></i> task.doc
+                                                </div>
+                                                <div class="file-size">5.8 kb</div>
+                                                <button type="button" class="file-close">
+                                                    <i class="fa fa-close"></i>
+                                                </button>
+                                            </div>
+                                            <div class="progress progress-xs progress-striped">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 65%"></div>
+                                            </div>
+                                            <div class="upload-process">37% done</div>
+                                        </li>
+                                        <li class="file-list">
+                                            <div class="upload-wrap">
+                                                <div class="file-name">
+                                                    <i class="fa fa-photo"></i> dashboard.png
+                                                </div>
+                                                <div class="file-size">2.1 mb</div>
+                                                <button type="button" class="file-close">
+                                                    <i class="fa fa-close"></i>
+                                                </button>
+                                            </div>
+                                            <div class="progress progress-xs progress-striped">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 65%"></div>
+                                            </div>
+                                            <div class="upload-process">Completed</div>
+                                        </li>
+                                    </ul>
+                                </form>
+                                <div class="m-t-30 text-center">
+                                    <button class="btn btn-primary submit-btn">Add to upload</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="add_group" class="modal fade">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Create a group</h3>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Groups are where your team communicates. They’re best when organized around a topic — #leads, for example.</p>
+                                <form>
+                                    <div class="form-group">
+                                        <label>Group Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Send invites to: <span class="text-muted-light">(optional)</span></label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="m-t-50 text-center">
+                                        <button class="btn btn-primary submit-btn">Create Group</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="add_chat_user" class="modal fade " role="dialog">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Create Chat Group</h3>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group m-b-30">
+                                    <input placeholder="Search to start a chat" class="form-control search-input" id="btn-input" type="text">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-primary">Search</button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <h5>Recent Conversations</h5>
+                                    <ul class="chat-user-list">
+                                        <li>
+                                            <a href="#">
+                                                <div class="media">
+                                                    <span class="avatar align-self-center">J</span>
+                                                    <div class="media-body align-self-center text-nowrap">
+                                                        <div class="user-name">Tarun</div>
+                                                        <span class="designation">CardioSpecalist</span>
+                                                    </div>
+                                                    <div class="text-nowrap align-self-center">
+                                                        <div class="online-date">1 day ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="media ">
+                                                    <span class="avatar align-self-center">B</span>
+                                                    <div class="media-body align-self-center text-nowrap">
+                                                        <div class="user-name">Shubam</div>
+                                                        <span class="designation">EyeSpecalist</span>
+                                                    </div>
+                                                    <div class="align-self-center text-nowrap">
+                                                        <div class="online-date">3 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="media">
+                                                    <span class="avatar align-self-center">
+                                                        <img src="Chat/img/user.jpg" alt="John Doe">
+                                                    </span>
+                                                    <div class="media-body text-nowrap align-self-center">
+                                                        <div class="user-name">Saloni</div>
+                                                        <span class="designation">StomachSpecalist</span>
+                                                    </div>
+                                                    <div class="align-self-center text-nowrap">
+                                                        <div class="online-date">7 months ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="m-t-50 text-center">
+                                    <button class="btn btn-primary submit-btn">Create Group</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="share_files" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Share File</h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="files-share-list">
+                                <div class="files-cont">
+                                    <div class="file-type">
+                                        <span class="files-icon"><i class="fa fa-file-pdf-o"></i></span>
+                                    </div>
+                                    <div class="files-info">
+                                        <span class="file-name text-ellipsis">AHA Selfcare Mobile Application Test-Cases.xls</span>
+                                        <span class="file-author"><a href="#">Bernardo Galaviz</a></span> <span class="file-date">May 31st at 6:53 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Share With</label>
+                                <input class="form-control" type="text">
+                            </div>
+                            <div class="m-t-50 text-center">
+                                <button class="btn btn-primary submit-btn">Share</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="~/Content/Chat/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/Chat/js/popper.min.js"></script>
+    <script src="~/Content/Chat/js/bootstrap.min.js"></script>
+    <script src="~/Content/Chat/js/jquery.slimscroll.js"></script>
+    <script src="~/Content/Chat/js/app.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

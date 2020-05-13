@@ -1,0 +1,180 @@
+﻿@model IEnumerable<ecare.Models.Appointment>
+
+@{
+    ViewBag.Title = "ThreeTableList";
+    Layout = "~/Views/Shared/_ReceptionLayoutPage.cshtml";
+}
+
+
+<h4>Appointments Dashboard</h4> 
+<hr />
+
+<div class="table-responsive ta">
+    <p>
+        @using (Html.BeginForm("ThreeTableList", "ReceptionMaster", FormMethod.Get))
+        {
+            <input type="text" name="psearch" />
+            <input type="submit" value="search" name="submit" />
+        }
+    </p>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>Online Appointments</h4>
+
+
+            <table id="myTable" class="table table-bordered table-sm table-hover">
+                <tr class="bg-custom text-white thead-light">
+                    <th>
+                        @Html.DisplayNameFor(model => model.AppointmentId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.AppointmentType)
+                    </th>
+
+
+
+
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    if (item.AppointmentType == "Online")
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointmentId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointmentType)
+                            </td>
+
+
+
+
+
+
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <h4>walkin Appointments</h4>
+
+
+            <table id="myTable1" class="table table-bordered table-sm table-hover">
+                <tr class="bg-custom text-white thead-light">
+                    <th>
+                        @Html.DisplayNameFor(model => model.AppointmentId)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AppointmentType)
+                    </th>
+
+
+
+
+
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    if (item.AppointmentType == "Walkin")
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointmentId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointmentType)
+                            </td>
+
+
+
+
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <h4>telephonic Appointments</h4>
+
+
+            <table id="myTable2" class="table table-bordered table-sm table-hover">
+                <tr class="bg-custom text-white thead-light">
+                    <th>
+                        @Html.DisplayNameFor(model => model.AppointmentId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.AppointmentType)
+                    </th>
+
+
+
+
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    if (item.AppointmentType == "Telephonic")
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointmentId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AppointmentType)
+                            </td>
+
+
+
+
+
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

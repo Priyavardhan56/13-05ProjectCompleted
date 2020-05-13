@@ -1,0 +1,205 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+body {
+  overflow-x: hidden;
+}
+.sidebar-heading {
+  font-weight: bold;
+}
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.bg-custom {
+  background-color: rgb(11, 102, 124);
+}
+.list-group-item {
+  color: white;
+}
+/* .list-group-item:hover {
+  background-color: #333;
+} */
+.list-group a {
+  display: block;
+  text-decoration: none;
+}
+.list-group a:hover {
+  color: rgb(11, 102, 124);
+  background-color: #fff !important;
+}
+.btn-custom {
+  color: #fff;
+  background-color: rgb(12, 118, 145);
+}
+.btn-custom:hover {
+  color: #fff;
+  background-color: rgb(20, 149, 182);
+}
+.active {
+  color: rgb(11, 102, 124) !important;
+  background-color: #fff !important;
+}
+
+.chat-content-wrap {
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+.chat-contents {
+	display: table-row;
+	height: 100%;
+}
+.chat-footer {
+	background-color: #fff;
+	border-top: 1px solid #eaeaea;
+	padding: 15px;
+}
+
+.call-icons {
+	text-align: center;
+	position: relative;
+}
+.call-icons .call-items {
+	border-radius: 5px;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: inline-block;
+}
+.call-icons .call-items .call-item {
+	display: inline-block;
+	text-align: center;
+	margin-right: 5px;
+}
+.call-icons .call-items .call-item:last-child {
+	margin-right: 0;
+}
+.call-icons .call-items .call-item a {
+	color: #777;
+	border: 1px solid #ddd;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 50px;
+	display: inline-block;
+	font-size: 20px;
+}
+.call-icons .call-items .call-item a i {
+	width: 18px;
+	height: 18px;
+}
+
+/* //forsearch */
+
+* {
+    box-sizing: border-box;
+}
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+    form.example button:hover {
+        background: #0b7dda;
+    }
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/* forswitching between tabs */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ecare.Models.Contact>
+
+@{
+    ViewBag.Title = "Contactinfo";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h4>Contactinfo</h4>
+<hr />
+<div class="table-responsive ta">
+    <table id="myTable" class="table table-bordered table-sm table-hover">
+        <tr class="bg-custom text-white thead-light">
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDateTime)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDateTime)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure to delete?');" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

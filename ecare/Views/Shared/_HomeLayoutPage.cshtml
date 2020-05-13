@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-custom ">
+        <div class="container">
+
+            @Html.ActionLink("E-Care", "Index", null, new { @class = "navbar-brand" })
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        @Html.ActionLink("About Us", "Index", null, new { @class = "nav-link" })
+
+                    </li>
+                    <li class="nav-item ">
+                        @Html.ActionLink("Contact Us", "Contact", null, new { @class = "nav-link" })
+                    </li>
+
+                    @{
+                        if (Session["Email"] != null)
+                        {
+                            <li class="nav-item ">
+                                @Html.ActionLink("Logout", "Logout", null, new { @class = "nav-link" })
+                            </li>
+
+
+                        }
+                        else
+                        {
+                            <li class="nav-item ">
+                                @Html.ActionLink("Login", "Login", null, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item ">
+                                @Html.ActionLink("Register", "Register", null, new { @class = "nav-link" })
+                            </li>
+
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @*<div class="alert alert-primary" role="alert" style="text-align:center;color:white;background-color:rgb(11, 102, 124)">
+            @TempData["Message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>*@
+    @if (TempData.ContainsKey("Message"))
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="text-align:center">
+            @TempData["Message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

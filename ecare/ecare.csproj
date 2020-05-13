@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66099130-53A0-4E97-91F1-07AA8AAB2A6E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ecare</RootNamespace>
+    <AssemblyName>ecare</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44380</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GridMvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="jQuery.Validation.Unobtrusive.Native, Version=1.1.5809.17463, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jQuery.Validation.Unobtrusive.Native.MVC5.1.3.0\lib\net45\jQuery.Validation.Unobtrusive.Native.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="ChatHub.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
+    <Compile Include="Controllers\DoctorMasterController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HospitalMasterController.cs" />
+    <Compile Include="Controllers\PatientMasterController.cs" />
+    <Compile Include="Controllers\ReceptionMasterController.cs" />
+    <Compile Include="Controllers\RoleMasterController.cs" />
+    <Compile Include="Controllers\StaffMasterController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\eCareSendEmail.cs" />
+    <Compile Include="Models\generatePassword.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Hospital.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Vitals.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\DoctorCredEmail.txt" />
+    <Content Include="App_Data\ForgotPassword.txt" />
+    <Content Include="App_Data\hospitalCredentialEmail.txt" />
+    <Content Include="App_Data\StaffCredEmail.txt" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\assets\css\simple-sidebar.css" />
+    <Content Include="Content\assets\Images\caremedical_group.png" />
+    <Content Include="Content\assets\Images\doctor.jfif" />
+    <Content Include="Content\assets\Images\doctor_pre.png" />
+    <Content Include="Content\assets\Images\DSC_00335.jpg" />
+    <Content Include="Content\assets\Images\ecare.jfif" />
+    <Content Include="Content\assets\Images\isolated-1188036_1920.png" />
+    <Content Include="Content\assets\Images\nurse.jpg" />
+    <Content Include="Content\assets\Images\nurse_bg.jpg" />
+    <Content Include="Content\assets\Images\undraw_medicine_b1ol %281%29.svg" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Chat\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\Chat\css\bootstrap.min.css" />
+    <Content Include="Content\Chat\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\Chat\css\font-awesome.min.css" />
+    <Content Include="Content\Chat\css\fullcalendar.min.css" />
+    <Content Include="Content\Chat\css\select2.min.css" />
+    <Content Include="Content\Chat\css\style.css" />
+    <Content Include="Content\Chat\css\tagsinput.css" />
+    <Content Include="Content\Chat\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="Content\Chat\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Content\Chat\img\attachment.png" />
+    <Content Include="Content\Chat\img\blog\blog-01.jpg" />
+    <Content Include="Content\Chat\img\blog\blog-02.jpg" />
+    <Content Include="Content\Chat\img\blog\blog-03.jpg" />
+    <Content Include="Content\Chat\img\blog\blog-04.jpg" />
+    <Content Include="Content\Chat\img\blog\blog-thumb-01.jpg" />
+    <Content Include="Content\Chat\img\blog\blog-thumb-02.jpg" />
+    <Content Include="Content\Chat\img\blog\blog-thumb-03.jpg" />
+    <Content Include="Content\Chat\img\blog\blog-thumb-04.jpg" />
+    <Content Include="Content\Chat\img\calander.png" />
+    <Content Include="Content\Chat\img\clock.png" />
+    <Content Include="Content\Chat\img\doctor-03.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-01.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-02.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-03.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-04.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-05.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-06.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-07.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-08.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-09.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-10.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-11.jpg" />
+    <Content Include="Content\Chat\img\doctor-thumb-12.jpg" />
+    <Content Include="Content\Chat\img\favicon.ico" />
+    <Content Include="Content\Chat\img\logo-dark.png" />
+    <Content Include="Content\Chat\img\logo.png" />
+    <Content Include="Content\Chat\img\patient-thumb-01.jpg" />
+    <Content Include="Content\Chat\img\patient-thumb-02.jpg" />
+    <Content Include="Content\Chat\img\placeholder-thumb.jpg" />
+    <Content Include="Content\Chat\img\placeholder.jpg" />
+    <Content Include="Content\Chat\img\sent.png" />
+    <Content Include="Content\Chat\img\user-02.jpg" />
+    <Content Include="Content\Chat\img\user-03.jpg" />
+    <Content Include="Content\Chat\img\user-04.jpg" />
+    <Content Include="Content\Chat\img\user-05.jpg" />
+    <Content Include="Content\Chat\img\user-06.jpg" />
+    <Content Include="Content\Chat\img\user.jpg" />
+    <Content Include="Content\Chat\img\video-call.jpg" />
+    <Content Include="Content\Chat\js\app.js" />
+    <Content Include="Content\Chat\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\Chat\js\bootstrap.min.js" />
+    <Content Include="Content\Chat\js\Chart.bundle.js" />
+    <Content Include="Content\Chat\js\chart.js" />
+    <Content Include="Content\Chat\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\Chat\js\fullcalendar.min.js" />
+    <Content Include="Content\Chat\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\Chat\js\jquery-ui.min.html" />
+    <Content Include="Content\Chat\js\jquery.dataTables.min.js" />
+    <Content Include="Content\Chat\js\jquery.fullcalendar.js" />
+    <Content Include="Content\Chat\js\jquery.slimscroll.js" />
+    <Content Include="Content\Chat\js\moment.min.js" />
+    <Content Include="Content\Chat\js\popper.min.js" />
+    <Content Include="Content\Chat\js\select2.min.js" />
+    <Content Include="Content\Chat\js\tagsinput.js" />
+    <Content Include="Content\Chat\plugins\light-gallery\css\lightgallery.min.css" />
+    <Content Include="Content\Chat\plugins\light-gallery\fonts\lgd641.svg" />
+    <Content Include="Content\Chat\plugins\light-gallery\img\loading.gif" />
+    <Content Include="Content\Chat\plugins\light-gallery\img\video-play.png" />
+    <Content Include="Content\Chat\plugins\light-gallery\img\vimeo-play.png" />
+    <Content Include="Content\Chat\plugins\light-gallery\img\youtube-play.png" />
+    <Content Include="Content\Chat\plugins\light-gallery\js\lightgallery-all.min.js" />
+    <Content Include="Content\Chat\plugins\summernote\dist\summernote-bs4.css" />
+    <Content Include="Content\Chat\plugins\summernote\dist\summernote-bs4.min.js" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\FrontPart\css\stylee.css" />
+    <Content Include="Content\FrontPart\images\about\1.jpg" />
+    <Content Include="Content\FrontPart\images\background\3.jpg" />
+    <Content Include="Content\FrontPart\images\background\appoinment.jpg" />
+    <Content Include="Content\FrontPart\images\background\nurse.jpg" />
+    <Content Include="Content\FrontPart\images\background\promo-video.jpg" />
+    <Content Include="Content\FrontPart\images\blog\1.png" />
+    <Content Include="Content\FrontPart\images\blog\2.png" />
+    <Content Include="Content\FrontPart\images\blog\3.png" />
+    <Content Include="Content\FrontPart\images\blog\5.jpg" />
+    <Content Include="Content\FrontPart\images\blog\6.jpg" />
+    <Content Include="Content\FrontPart\images\blog\7.jpg" />
+    <Content Include="Content\FrontPart\images\blog\8.jpg" />
+    <Content Include="Content\FrontPart\images\blog\Latest_Updates_FB_1.jpg" />
+    <Content Include="Content\FrontPart\images\blog\post-thumb-small.jpg" />
+    <Content Include="Content\FrontPart\images\blog\social_media_fb_4.jpg" />
+    <Content Include="Content\FrontPart\images\ecare-llogo-colored-200.png" />
+    <Content Include="Content\FrontPart\images\ecare-logo-colored-200.png" />
+    <Content Include="Content\FrontPart\images\gallery\1.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\2.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\3.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\apollo.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\bed.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\bilort.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\gallery-01.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\gallery-02.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\gallery-03.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\gallery-04.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\gallery-05.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\gallery-06.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\injection.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\KIMS.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\manipl.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\rainbow.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\sanghamitra-hospitals-pvt-ltd-ongole-ho-ongole-hospitals-9k84ud.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\serveces.png" />
+    <Content Include="Content\FrontPart\images\gallery\staff.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\video-thumb-01.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\video-thumb-02.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\video-thumb-03.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\video-thumb-04.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\w doctors.jpg" />
+    <Content Include="Content\FrontPart\images\gallery\waiting.jpg" />
+    <Content Include="Content\FrontPart\images\icons\icon-select.png" />
+    <Content Include="Content\FrontPart\images\icons\preloader.gif" />
+    <Content Include="Content\FrontPart\images\logo-2.png" />
+    <Content Include="Content\FrontPart\images\logo.png" />
+    <Content Include="Content\FrontPart\images\resource\1.png" />
+    <Content Include="Content\FrontPart\images\resource\2.png" />
+    <Content Include="Content\FrontPart\images\resource\3.png" />
+    <Content Include="Content\FrontPart\images\resource\4.png" />
+    <Content Include="Content\FrontPart\images\services\cancer.png" />
+    <Content Include="Content\FrontPart\images\services\cardiology.png" />
+    <Content Include="Content\FrontPart\images\services\healthcare.jpg" />
+    <Content Include="Content\FrontPart\images\services\neuroscience.jpg" />
+    <Content Include="Content\FrontPart\images\services\nurse.jpg" />
+    <Content Include="Content\FrontPart\images\services\orthopedics_0.jpg" />
+    <Content Include="Content\FrontPart\images\services\service-five.jpg" />
+    <Content Include="Content\FrontPart\images\services\service-four.jpg" />
+    <Content Include="Content\FrontPart\images\services\service-one.jpg" />
+    <Content Include="Content\FrontPart\images\services\service-three.jpg" />
+    <Content Include="Content\FrontPart\images\services\service-two.jpg" />
+    <Content Include="Content\FrontPart\images\services\spine.jpg" />
+    <Content Include="Content\FrontPart\images\slider\slider-bg-1.jpg" />
+    <Content Include="Content\FrontPart\images\slider\slider-bg-2.jpg" />
+    <Content Include="Content\FrontPart\images\slider\slider-bg-3.jpg" />
+    <Content Include="Content\FrontPart\images\team\anilku.jpg" />
+    <Content Include="Content\FrontPart\images\team\doctor-1.jpg" />
+    <Content Include="Content\FrontPart\images\team\doctor-2.jpg" />
+    <Content Include="Content\FrontPart\images\team\doctor-3.jpg" />
+    <Content Include="Content\FrontPart\images\team\doctor-lab-1.jpg" />
+    <Content Include="Content\FrontPart\images\team\doctor-lab-2.jpg" />
+    <Content Include="Content\FrontPart\images\team\doctor-lab-3.jpg" />
+    <Content Include="Content\FrontPart\images\team\event-1.jpg" />
+    <Content Include="Content\FrontPart\images\team\event-2.jpg" />
+    <Content Include="Content\FrontPart\images\team\event-3.jpg" />
+    <Content Include="Content\FrontPart\images\team\lakshmi.png" />
+    <Content Include="Content\FrontPart\images\team\raj.png" />
+    <Content Include="Content\FrontPart\images\testimonials\1.jpg" />
+    <Content Include="Content\FrontPart\images\testimonials\1.png" />
+    <Content Include="Content\FrontPart\images\testimonials\2.png" />
+    <Content Include="Content\FrontPart\images\testimonials\3.png" />
+    <Content Include="Content\FrontPart\js\script.js" />
+    <Content Include="Content\FrontPart\plugins\animate.min.css" />
+    <Content Include="Content\FrontPart\plugins\bootstrap-select.min.css" />
+    <Content Include="Content\FrontPart\plugins\bootstrap-select.min.js" />
+    <Content Include="Content\FrontPart\plugins\bootstrap.min.css" />
+    <Content Include="Content\FrontPart\plugins\bootstrap.min.js" />
+    <Content Include="Content\FrontPart\plugins\fancybox\jquery.fancybox.min.css" />
+    <Content Include="Content\FrontPart\plugins\fancybox\jquery.fancybox.min.js" />
+    <Content Include="Content\FrontPart\plugins\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\FrontPart\plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\FrontPart\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\FrontPart\plugins\google-map\gmap.js" />
+    <Content Include="Content\FrontPart\plugins\google-map\images\marker.png" />
+    <Content Include="Content\FrontPart\plugins\jquery-ui.js" />
+    <Content Include="Content\FrontPart\plugins\jquery-ui\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\FrontPart\plugins\jquery-ui\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\FrontPart\plugins\jquery-ui\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\FrontPart\plugins\jquery-ui\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\FrontPart\plugins\jquery-ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\FrontPart\plugins\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\FrontPart\plugins\jquery-ui\jquery-ui.css" />
+    <Content Include="Content\FrontPart\plugins\jquery.appear.js" />
+    <Content Include="Content\FrontPart\plugins\jquery.js" />
+    <Content Include="Content\FrontPart\plugins\slick\ajax-loader.gif" />
+    <Content Include="Content\FrontPart\plugins\slick\fonts\slick.svg" />
+    <Content Include="Content\FrontPart\plugins\slick\slick-theme.css" />
+    <Content Include="Content\FrontPart\plugins\slick\slick.css" />
+    <Content Include="Content\FrontPart\plugins\slick\slick.js" />
+    <Content Include="Content\FrontPart\plugins\slick\slick.min.js" />
+    <Content Include="Content\FrontPart\plugins\timePicker.css" />
+    <Content Include="Content\FrontPart\plugins\timePicker.js" />
+    <Content Include="Content\FrontPart\plugins\validate.js" />
+    <Content Include="Content\FrontPart\plugins\wow.js" />
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\Chat\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Content\Chat\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Content\Chat\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Content\Chat\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\Chat\plugins\light-gallery\fonts\lgd41d.eot" />
+    <Content Include="Content\Chat\plugins\light-gallery\fonts\lgd641.eot" />
+    <Content Include="Content\Chat\plugins\light-gallery\fonts\lgd641.ttf" />
+    <Content Include="Content\Chat\plugins\light-gallery\fonts\lgd641.woff" />
+    <Content Include="Content\Chat\plugins\summernote\dist\font\summernote4c4d.eot" />
+    <Content Include="Content\Chat\plugins\summernote\dist\font\summernote4c4d.ttf" />
+    <Content Include="Content\Chat\plugins\summernote\dist\font\summernote4c4d.woff" />
+    <Content Include="Content\Chat\plugins\summernote\dist\font\summernoted41d.eot" />
+    <Content Include="Content\FrontPart\css\maps\style.css.map" />
+    <Content Include="Content\FrontPart\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\FrontPart\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\FrontPart\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\FrontPart\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\FrontPart\plugins\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\FrontPart\plugins\slick\config.rb" />
+    <Content Include="Content\FrontPart\plugins\slick\fonts\slick.eot" />
+    <Content Include="Content\FrontPart\plugins\slick\fonts\slick.ttf" />
+    <Content Include="Content\FrontPart\plugins\slick\fonts\slick.woff" />
+    <Content Include="Content\FrontPart\plugins\slick\slick-theme.less" />
+    <Content Include="Content\FrontPart\plugins\slick\slick-theme.scss" />
+    <Content Include="Content\FrontPart\plugins\slick\slick.less" />
+    <Content Include="Content\FrontPart\plugins\slick\slick.scss" />
+    <Content Include="Grid.mvc.readme" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\wells.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\utilities.less" />
+    <Content Include="Content\bootstrap\type.less" />
+    <Content Include="Content\bootstrap\tooltip.less" />
+    <Content Include="Content\bootstrap\thumbnails.less" />
+    <Content Include="Content\bootstrap\theme.less" />
+    <Content Include="Content\bootstrap\tables.less" />
+    <Content Include="Content\bootstrap\scaffolding.less" />
+    <Content Include="Content\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\bootstrap\responsive-embed.less" />
+    <Content Include="Content\bootstrap\progress-bars.less" />
+    <Content Include="Content\bootstrap\print.less" />
+    <Content Include="Content\bootstrap\popovers.less" />
+    <Content Include="Content\bootstrap\panels.less" />
+    <Content Include="Content\bootstrap\pagination.less" />
+    <Content Include="Content\bootstrap\pager.less" />
+    <Content Include="Content\bootstrap\normalize.less" />
+    <Content Include="Content\bootstrap\navs.less" />
+    <Content Include="Content\bootstrap\navbar.less" />
+    <Content Include="Content\bootstrap\modals.less" />
+    <Content Include="Content\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap\mixins\table-row.less" />
+    <Content Include="Content\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap\mixins\size.less" />
+    <Content Include="Content\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap\mixins\resize.less" />
+    <Content Include="Content\bootstrap\mixins\reset-text.less" />
+    <Content Include="Content\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap\mixins\panels.less" />
+    <Content Include="Content\bootstrap\mixins\pagination.less" />
+    <Content Include="Content\bootstrap\mixins\opacity.less" />
+    <Content Include="Content\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap\mixins\list-group.less" />
+    <Content Include="Content\bootstrap\mixins\labels.less" />
+    <Content Include="Content\bootstrap\mixins\image.less" />
+    <Content Include="Content\bootstrap\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap\mixins\grid.less" />
+    <Content Include="Content\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap\mixins\gradients.less" />
+    <Content Include="Content\bootstrap\mixins\forms.less" />
+    <Content Include="Content\bootstrap\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap\mixins\center-block.less" />
+    <Content Include="Content\bootstrap\mixins\buttons.less" />
+    <Content Include="Content\bootstrap\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap\mixins\alerts.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Content\bootstrap\media.less" />
+    <Content Include="Content\bootstrap\list-group.less" />
+    <Content Include="Content\bootstrap\labels.less" />
+    <Content Include="Content\bootstrap\jumbotron.less" />
+    <Content Include="Content\bootstrap\input-groups.less" />
+    <Content Include="Content\bootstrap\grid.less" />
+    <Content Include="Content\bootstrap\glyphicons.less" />
+    <Content Include="Content\bootstrap\forms.less" />
+    <Content Include="Content\bootstrap\dropdowns.less" />
+    <Content Include="Content\bootstrap\component-animations.less" />
+    <Content Include="Content\bootstrap\code.less" />
+    <Content Include="Content\bootstrap\close.less" />
+    <Content Include="Content\bootstrap\carousel.less" />
+    <Content Include="Content\bootstrap\buttons.less" />
+    <Content Include="Content\bootstrap\button-groups.less" />
+    <Content Include="Content\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\bootstrap\bootstrap.less" />
+    <Content Include="Content\bootstrap\badges.less" />
+    <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="Content\_bootstrap-datetimepicker.less" />
+    <Content Include="Content\bootstrap-datetimepicker-build.less" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\DateTimeCode.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\PhoneNumberFormat.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_HomeLayoutPage.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Shared\_AdminLayoutPage.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\HospitalMaster\create.cshtml" />
+    <Content Include="Views\HospitalMaster\Index.cshtml" />
+    <Content Include="Views\HospitalMaster\Edit.cshtml" />
+    <Content Include="Views\RoleMaster\Index.cshtml" />
+    <Content Include="Views\RoleMaster\Create.cshtml" />
+    <Content Include="Views\RoleMaster\Edit.cshtml" />
+    <Content Include="Views\Shared\_HospitalLayoutPage.cshtml" />
+    <Content Include="Views\DoctorMaster\Index.cshtml" />
+    <Content Include="Views\DoctorMaster\Create.cshtml" />
+    <Content Include="Views\DoctorMaster\Edit.cshtml" />
+    <Content Include="Views\StaffMaster\Index.cshtml" />
+    <Content Include="Views\StaffMaster\Create.cshtml" />
+    <Content Include="Views\StaffMaster\Edit.cshtml" />
+    <Content Include="Views\Shared\_ReceptionLayoutPage.cshtml" />
+    <Content Include="Views\ReceptionMaster\Index.cshtml" />
+    <Content Include="Views\ReceptionMaster\Create.cshtml" />
+    <Content Include="Views\ReceptionMaster\Edit.cshtml" />
+    <Content Include="Views\HospitalMaster\Settings.cshtml" />
+    <Content Include="Views\ReceptionMaster\ReceptionProfile.cshtml" />
+    <Content Include="Views\HospitalMaster\HospitalProfile.cshtml" />
+    <Content Include="Views\HospitalMaster\Dashboard.cshtml" />
+    <Content Include="Views\Admin\Settings.cshtml" />
+    <Content Include="Views\ReceptionMaster\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_DoctorLayoutPage.cshtml" />
+    <Content Include="Views\DoctorMaster\DoctorProfile.cshtml" />
+    <Content Include="Views\DoctorMaster\Settings.cshtml" />
+    <Content Include="Views\DoctorMaster\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_PatientLayoutPage.cshtml" />
+    <Content Include="Views\PatientMaster\Dashboard.cshtml" />
+    <Content Include="Views\PatientMaster\PatientProfile.cshtml" />
+    <Content Include="Views\PatientMaster\Settings.cshtml" />
+    <Content Include="Views\PatientMaster\Index.cshtml" />
+    <Content Include="Views\PatientMaster\Edit.cshtml" />
+    <Content Include="Views\PatientMaster\GetHospitalList.cshtml" />
+    <Content Include="Views\PatientMaster\Create.cshtml" />
+    <Content Include="Views\DoctorMaster\Vitals.cshtml" />
+    <Content Include="Views\Chat\Chat.cshtml" />
+    <Content Include="Views\Shared\_ChatLayoutPage.cshtml" />
+    <Content Include="Views\ReceptionMaster\Settings.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Service.cshtml" />
+    <Content Include="Views\Shared\_IndexLayoutPage.cshtml" />
+    <Content Include="Views\ReceptionMaster\AssignDoctor.cshtml" />
+    <Content Include="Views\ReceptionMaster\AppointmentList.cshtml" />
+    <Content Include="Views\ReceptionMaster\ThreeTableList.cshtml" />
+    <Content Include="Views\DoctorMaster\DoctorCheckUp.cshtml" />
+    <Content Include="Views\DoctorMaster\Appointments.cshtml" />
+    <Content Include="Views\DoctorMaster\EditAppointments.cshtml" />
+    <Content Include="Views\HospitalMaster\DoctorsList.cshtml" />
+    <Content Include="Views\HospitalMaster\AddDoctor.cshtml" />
+    <Content Include="Views\HospitalMaster\StaffList.cshtml" />
+    <Content Include="Views\HospitalMaster\AddStaff.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Home\Gallary.cshtml" />
+    <Content Include="Views\Home\Team.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\PatientMaster\Chat.cshtml" />
+    <Content Include="Views\DoctorMaster\Chat.cshtml" />
+    <Content Include="Views\Home\Contactus.cshtml" />
+    <Content Include="Views\Admin\Contactinfo.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\HospitalMaster\HospitalHistory.cshtml" />
+    <Content Include="Views\HospitalMaster\DoctorsHistory.cshtml" />
+    <Content Include="Views\HospitalMaster\StaffHistory.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Admin\AddUsers.cshtml" />
+    <Content Include="Views\PatientMaster\Prescription.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Logo\" />
+    <Folder Include="Images\" />
+    <Folder Include="UploadedLogos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52355</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44380/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
