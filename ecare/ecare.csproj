@@ -732,7 +732,6 @@
     <Content Include="Views\PatientMaster\Settings.cshtml" />
     <Content Include="Views\PatientMaster\Index.cshtml" />
     <Content Include="Views\PatientMaster\Edit.cshtml" />
-    <Content Include="Views\PatientMaster\GetHospitalList.cshtml" />
     <Content Include="Views\PatientMaster\Create.cshtml" />
     <Content Include="Views\DoctorMaster\Vitals.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
