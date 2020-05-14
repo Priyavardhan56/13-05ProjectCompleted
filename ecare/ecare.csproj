@@ -385,8 +385,14 @@
     <Content Include="Content\FrontPart\images\team\event-1.jpg" />
     <Content Include="Content\FrontPart\images\team\event-2.jpg" />
     <Content Include="Content\FrontPart\images\team\event-3.jpg" />
+    <Content Include="Content\FrontPart\images\team\Harsha.jpeg" />
     <Content Include="Content\FrontPart\images\team\lakshmi.png" />
+    <Content Include="Content\FrontPart\images\team\navd.jpg" />
+    <Content Include="Content\FrontPart\images\team\priy.jpg" />
     <Content Include="Content\FrontPart\images\team\raj.png" />
+    <Content Include="Content\FrontPart\images\team\RiteshSir.jpeg" />
+    <Content Include="Content\FrontPart\images\team\saitej.jpeg" />
+    <Content Include="Content\FrontPart\images\team\vinay.jpeg" />
     <Content Include="Content\FrontPart\images\testimonials\1.jpg" />
     <Content Include="Content\FrontPart\images\testimonials\1.png" />
     <Content Include="Content\FrontPart\images\testimonials\2.png" />
