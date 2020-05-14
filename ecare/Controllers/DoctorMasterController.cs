@@ -21,6 +21,7 @@ namespace ecare.Controllers
         private static String Id = "";
         private static String PatientId = "";
         private static String HospitalId = "";
+        private static String Name = "";
 
         public ActionResult Index()
         {
@@ -852,7 +853,55 @@ namespace ecare.Controllers
             return View();
 
         }
-       
+
+
+
+        public ActionResult Prescription()
+        {
+            Name = Session["Name"].ToString();
+            List<Vitals> AppointmentList = new List<Vitals>();
+            SqlConnection con = new SqlConnection(cs);
+            //SqlCommand cmd = new SqlCommand("spGetDetailsHospitalsMaster", con)
+            //{
+            //    CommandType = CommandType.StoredProcedure
+            //};
+            //SqlCommand cmd1 = new SqlCommand("Select * from HospitalMaster where HospitalName like '%" + HospitalSearch + "%'", con);
+
+            SqlCommand cmd = new SqlCommand("SpDetailsDoctorCheckupPrescriptionPatientMaster", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@Name", Name);
+            cmd.Connection = con;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            //con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                AppointmentList.Add(
+                    new Vitals
+                    {
+                        Id = Convert.ToInt32(dr["Id"]),
+                        PatientEmail = Convert.ToString(dr["PatientEmail"]),
+                        BloodPressure = Convert.ToString(dr["BloodPressure"]),
+                        Temperature = Convert.ToString(dr["Temperature"]),
+                        Pulse = Convert.ToString(dr["Pulse"]),
+                        Symptoms = Convert.ToString(dr["Symptoms"]),
+                        Diagnosis = Convert.ToString(dr["Diagnosis"]),
+                        Remarks = Convert.ToString(dr["Remarks"]),
+                        MedicineName = Convert.ToString(dr["MedicineName"]),
+                        Dosage = Convert.ToString(dr["Dosage"]),
+                        Timings = Convert.ToString(dr["Timings"]),
+                        EntryDateTime = Convert.ToString(dr["EntryDateTime"]),
+                        EntryBy = Convert.ToString(dr["EntryBy"])
+                    });
+            }
+            return View(AppointmentList);
+        }
     }
 }
 
